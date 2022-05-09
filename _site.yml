@@ -1,0 +1,27 @@
+name: "Markup & Markdown"
+output_dir: "docs"
+navbar:
+  title: "Markup & Markdown"
+  left:
+    - text: "Markup"
+      href: 1_markup-markdown.html
+    - text: "html"
+      href: 2_html.html
+    - text: "xml"
+      href: 3_xml.html
+    - text: "LaTeX"
+      href: 4_latex.html
+    - text: "Pandoc"
+      href: 5_pandoc.html
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    css: styles.css
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    includes:
+      after_body: footer.html

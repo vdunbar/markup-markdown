@@ -1,0 +1,43 @@
+---
+title: "Markup & Markdown"
+pagetitle: "Markup & Markdown"
+---
+
+```{r echo=FALSE}
+knitr::read_chunk("./scripts/workshop_files.R")
+```
+
+## Description
+
+This workshop will briefly introduce:
+
+* markup languages used for communicating structure, style, and data.
+* common applications of specific markup languages.
+* converting between markup languages.
+
+## Objectives
+
+* Introduce a set of commonly used markup languages for authoring academic and web based content.
+* Review markup in relation to communicating document structure, document styling, and machine interpretable data.
+* Explore document content vs document presentation.
+
+## Outcomes
+
+* Articulate the differences between Markdown, html, xml, and LaTeX.
+* Write a basic document in each of html and LaTeX.
+* Convert documents between markup languages using a command line tool, Pandoc.
+
+## What you will need
+
+* A computer. Neither a tablet nor cell phone will suffice.
+
+## Pre-load
+
+* Set up an [Overleaf account](https://www.overleaf.com/)
+* Install [Atom](https://atom.io/)
+* Install [Pandoc](https://pandoc.org/installing.html). Just use the button prompt at the top, don't worry about all the extra text.
+
+## Files
+
+```{r loadfiles, results='asis', echo=FALSE}
+```
