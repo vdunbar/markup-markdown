@@ -33,6 +33,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -43,101 +45,17 @@
   ul.task-list{list-style: none;}
     </style>
 
-
-<style type="text/css">
-  code {
-    white-space: pre;
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
   }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  { color: #cccccc; background-color: #303030; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ffcfaf; } /* Alert */
-code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #dca3a3; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #f0dfaf; } /* ControlFlow */
-code span.ch { color: #dca3a3; } /* Char */
-code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-code span.co { color: #7f9f7f; } /* Comment */
-code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-code span.do { color: #7f9f7f; } /* Documentation */
-code span.dt { color: #dfdfbf; } /* DataType */
-code span.dv { color: #dcdccc; } /* DecVal */
-code span.er { color: #c3bf9f; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #c0bed1; } /* Float */
-code span.fu { color: #efef8f; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
-code span.kw { color: #f0dfaf; } /* Keyword */
-code span.op { color: #f0efd0; } /* Operator */
-code span.ot { color: #efef8f; } /* Other */
-code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-code span.sc { color: #dca3a3; } /* SpecialChar */
-code span.ss { color: #cc9393; } /* SpecialString */
-code span.st { color: #cc9393; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #cc9393; } /* VerbatimString */
-code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
 </script>
+
 
 
 
@@ -489,61 +407,61 @@ No one new exactly how the events of the night unfolded, but what we do for sure
 <div id="html-document-structure" class="section level3">
 <h3>html document structure</h3>
 <p>The basic html document is comprised of 3 elements: a declaration of the document type, a header that contains meta data, and a body that contains the document–the text to be read–and structure–the markup tags that wrap around this content.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
+<pre class="html"><code>&lt;!DOCTYPE html&gt;
+
+&lt;head&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;/body&gt;</code></pre>
 <p>From here, we start to build things out, first with some content…</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;h1&gt;</span>A tale of two camels<span class="kw">&lt;/h1&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h2&gt;</span>Chapter 1: the missing hump<span class="kw">&lt;/h2&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;p&gt;</span>I was familiar with the one humped and two humped varieties of camel. That was elementary. This was nothing but elementary.<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;p&gt;</span>The doctor knocked on my door, round about 8pm...<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h2&gt;</span>Chapter 2: a revelation<span class="kw">&lt;/h2&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;p&gt;</span>I woke early on Saturday...<span class="er">&lt;</span>/&gt;</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
+<pre class="html"><code>&lt;!DOCTYPE html&gt;
+
+&lt;head&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;A tale of two camels&lt;/h1&gt;
+    &lt;h2&gt;Chapter 1: the missing hump&lt;/h2&gt;
+      &lt;p&gt;I was familiar with the one humped and two humped varieties of camel. That was elementary. This was nothing but elementary.&lt;/p&gt;
+      &lt;p&gt;The doctor knocked on my door, round about 8pm...&lt;/p&gt;
+    &lt;h2&gt;Chapter 2: a revelation&lt;/h2&gt;
+      &lt;p&gt;I woke early on Saturday...&lt;/&gt;
+&lt;/body&gt;</code></pre>
 <p>The above provides us only with information about how elements of the document structurally relate to each other. It’s not strictly necessary, but there’s benefit when reading the markup to using spacing to indicate parent, child, and sibling relationships.</p>
 <p>When we think about document structure as data though, markup allows us to parse documents according to convention. For example, we might infer that the <code>h1</code> below is a title, that the title is immediately followed by the authors, which is then preceded by a header that initiates the abstract, while the subsequent sibling header starts the actual article. Texts that belong to a particular document type genre that adhere to well defined conventions can–through pattern matching–be machine interpreted and parsed.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h1&gt;</span>Identification and Reporting of Patient and Public Partner Authorship on Knowledge Syntheses: Rapid Review<span class="kw">&lt;/h1&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;p&gt;</span>Authors: Ursula Ellis, Vanessa Kitchin, Mathew Vis-Dunbar<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;h2&gt;</span>Abstract<span class="kw">&lt;/h2&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p&gt;</span>Background: Patient and public involvement (PPI) in health research is an area of growing interest. Several studies have examined the use and impact of PPI in knowledge syntheses (systematic, scoping, and related reviews); however, few studies have focused specifically on the patient or public coauthorship of such reviews.<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p&gt;</span>Objective: This study seeks to identify published systematic and scoping reviews coauthored by patient or public partners and examine the characteristics of these coauthored reviews, such as which journals publish them, geographic location of research teams, and terms used to describe patient or public partner authors in affiliations, abstracts, or article text.<span class="er">&lt;</span>/&gt;</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;h2&gt;</span>Introduction<span class="kw">&lt;/h2&gt;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p&gt;</span>Some more text here...<span class="er">&lt;</span>/&gt;</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
+<pre class="html"><code>&lt;!DOCTYPE html&gt;
+
+&lt;head&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1&gt;Identification and Reporting of Patient and Public Partner Authorship on Knowledge Syntheses: Rapid Review&lt;/h1&gt;
+  &lt;p&gt;Authors: Ursula Ellis, Vanessa Kitchin, Mathew Vis-Dunbar&lt;/p&gt;
+  &lt;h2&gt;Abstract&lt;/h2&gt;
+    &lt;p&gt;Background: Patient and public involvement (PPI) in health research is an area of growing interest. Several studies have examined the use and impact of PPI in knowledge syntheses (systematic, scoping, and related reviews); however, few studies have focused specifically on the patient or public coauthorship of such reviews.&lt;/p&gt;
+    &lt;p&gt;Objective: This study seeks to identify published systematic and scoping reviews coauthored by patient or public partners and examine the characteristics of these coauthored reviews, such as which journals publish them, geographic location of research teams, and terms used to describe patient or public partner authors in affiliations, abstracts, or article text.&lt;/&gt;
+  &lt;h2&gt;Introduction&lt;/h2&gt;
+    &lt;p&gt;Some more text here...&lt;/&gt;
+&lt;/body&gt;</code></pre>
 <p>A more complex structure would allow us to subdivide our document into sections or divisions. A common starting structure for a web page is:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;div</span> <span class="er">id</span> <span class="ot">=</span> <span class="st">&quot;wrapper&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">id</span> <span class="ot">=</span> <span class="st">&quot;navbar&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">id</span> <span class="ot">=</span> <span class="st">&quot;header&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">id</span> <span class="ot">=</span> <span class="st">&quot;content&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">id</span> <span class="ot">=</span> <span class="st">&quot;footer&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/div&gt;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
+<pre class="html"><code>&lt;!DOCTYPE html&gt;
+
+&lt;head&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id = &quot;wrapper&quot;&gt;
+    &lt;div id = &quot;navbar&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id = &quot;header&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id = &quot;content&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id = &quot;footer&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>
 <p>This is a much more complex structural division than we would get with a basic Markdown syntax. And the more meaningful the structure we provide in the document, the more easily the document is interpreted by a machine. Good document structure makes research on these documents feasible and increases things like page ranking in online search tools. So, aside from doing research on textual documents, when creating any web content, document structure is critical for your content being properly interpreted.</p>
 <div class="exercise">
 <p><strong>Exercise</strong></p>

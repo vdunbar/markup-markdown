@@ -33,6 +33,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -43,101 +45,17 @@
   ul.task-list{list-style: none;}
     </style>
 
-
-<style type="text/css">
-  code {
-    white-space: pre;
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
   }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  { color: #cccccc; background-color: #303030; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ffcfaf; } /* Alert */
-code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #dca3a3; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #f0dfaf; } /* ControlFlow */
-code span.ch { color: #dca3a3; } /* Char */
-code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-code span.co { color: #7f9f7f; } /* Comment */
-code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-code span.do { color: #7f9f7f; } /* Documentation */
-code span.dt { color: #dfdfbf; } /* DataType */
-code span.dv { color: #dcdccc; } /* DecVal */
-code span.er { color: #c3bf9f; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #c0bed1; } /* Float */
-code span.fu { color: #efef8f; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
-code span.kw { color: #f0dfaf; } /* Keyword */
-code span.op { color: #f0efd0; } /* Operator */
-code span.ot { color: #efef8f; } /* Other */
-code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-code span.sc { color: #dca3a3; } /* SpecialChar */
-code span.ss { color: #cc9393; } /* SpecialString */
-code span.st { color: #cc9393; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #cc9393; } /* VerbatimString */
-code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
 </script>
+
 
 
 
@@ -445,17 +363,17 @@ div.tocify {
 <p>xml refers to a standard for how data is encoded or structured, not the descriptor elements used. xml as a standard covers things like how tags are opened and closed, when and if we can use colons or quotations, if spaces are meaningful etc. That is, xml is a standard that defines how meta data and data are encoded, but not what meta data elements can be used; this is where other meta data standards come in that leverage xml. In much the same way as Markdown is parsed to present its structure as meaningful, xml requires a parser to interpret the information we’re giving it.</p>
 <p>Two meta data standards you might be familiar with that can be implemented in xml include Schema.org and DublinCore. Both of these allow us to reference a meta data element in each respective standard, and then provide a value for that meta data element. xml documents can be stand alone, but the metadata standards that they refer to can also be integrated in with other markup, such as html.</p>
 <p>An example of an xml document using the DublinCore schema for Shelley’s poem, A Dirge, might look something like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version</span> <span class="ot">=</span> <span class="st">&quot;1.1&quot;</span><span class="fu">?&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">metadata</span><span class="ot"> xmlns:dc</span> <span class="ot">=</span> <span class="st">&quot;http://purl.org/DC/elements/1.1/&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span><span class="ot">dc:title</span><span class="er">&gt;A</span> <span class="er">Dirge&lt;/dc:title&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;dc:creator&gt;Shelley,</span> <span class="er">Percy</span> <span class="er">Bysshe&lt;/dc:creator&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;dc:type&gt;poem&lt;/dc:type&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;dc:date&gt;1820&lt;/dc:date&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;dc:language&gt;en&lt;/dc:language&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/metadata&gt;</span></span></code></pre></div>
+<pre class="xml"><code>&lt;?xml version = &quot;1.1&quot;?&gt;
+
+&lt;metadata xmlns:dc = &quot;http://purl.org/DC/elements/1.1/&quot;
+
+&lt;dc:title&gt;A Dirge&lt;/dc:title&gt;
+&lt;dc:creator&gt;Shelley, Percy Bysshe&lt;/dc:creator&gt;
+&lt;dc:type&gt;poem&lt;/dc:type&gt;
+&lt;dc:date&gt;1820&lt;/dc:date&gt;
+&lt;dc:language&gt;en&lt;/dc:language&gt;
+
+&lt;/metadata&gt;</code></pre>
 <p>As previously, we need to declare the document type, we then reference the standard–known as a namespace–and then we use a series of declared attributes to describe the object. When done in this way, we can pass along a significant amount of structured information about the entity being described. What we haven’t done in this instance, however, is provide any document structure.</p>
 <p>Since the content is machine readable–or parsable because of its markup–the information above could be parsed and rendered into an html document where we provide structural elements around each of the data points and then some styling.</p>
 <div class="doc">
@@ -473,39 +391,39 @@ A Dirge
 <h2>TEI</h2>
 <p>The <strong>Text Encoding Initiative</strong>–which some, particularly in the humanities, may be familiar with–is another implementation of the xml standard used to describe texts in great granularity. TEI is what is known as a descriptive markup language–it uses markup to describe the underlying text.</p>
 <p>We’ll start to see some common patterns here. A valid TEI document is comprised of at least 3 elements: a declaration of the document type–which in this case also has to link to the relevant namespace to be valid–a header that contains meta data, and a body that contains the document and structure.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">TEI</span><span class="ot"> xmlns=</span><span class="st">&quot;http://www.tei-c.org/ns/1.0&quot;</span>&gt;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">teiHeader</span>&gt;</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">teiHeader</span>&gt;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">text</span>&gt;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">text</span>&gt;</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">TEI</span>&gt;</span></code></pre></div>
+<pre class="xml"><code>&lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
+
+  &lt;teiHeader&gt;
+  &lt;/teiHeader&gt;
+
+  &lt;text&gt;
+  &lt;/text&gt;
+&lt;/TEI&gt;</code></pre>
 <p>It then has some basic syntax in common with html where we can describe things like paragraphs. But it also starts to integrate more meaningful descriptions of the text. Fro example,</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">TEI</span><span class="ot"> xmlns=</span><span class="st">&quot;http://www.tei-c.org/ns/1.0&quot;</span>&gt;</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">teiHeader</span>&gt;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">teiHeader</span>&gt;</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">text</span>&gt;</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">body</span>&gt;</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">p</span>&gt;</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">name</span><span class="ot"> type=</span><span class="st">&#39;person&#39;</span>&gt;Donald&lt;/<span class="kw">name</span>&gt; was often known to say &lt;<span class="kw">q</span>&gt;It can&#39;t be done!&lt;/<span class="kw">q</span>&gt; But my mother would always tell him &lt;<span class="kw">q</span>&gt;&lt;<span class="kw">rs</span><span class="ot"> type=</span><span class="st">&#39;person&#39;</span>&gt;Donald&lt;/<span class="kw">rs</span>&gt;, surely it can.&lt;/<span class="kw">q</span>&gt; &lt;<span class="kw">emph</span>&gt;No&lt;/<span class="kw">emph</span>&gt;, was frequently his counter response.</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">p</span>&gt;</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">body</span>&gt;</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">text</span>&gt;</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">TEI</span>&gt;</span></code></pre></div>
+<pre class="xml"><code>&lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
+
+  &lt;teiHeader&gt;
+  &lt;/teiHeader&gt;
+
+  &lt;text&gt;
+    &lt;body&gt;
+      &lt;p&gt;
+      &lt;name type=&#39;person&#39;&gt;Donald&lt;/name&gt; was often known to say &lt;q&gt;It can&#39;t be done!&lt;/q&gt; But my mother would always tell him &lt;q&gt;&lt;rs type=&#39;person&#39;&gt;Donald&lt;/rs&gt;, surely it can.&lt;/q&gt; &lt;emph&gt;No&lt;/emph&gt;, was frequently his counter response.
+      &lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/text&gt;
+&lt;/TEI&gt;</code></pre>
 <p>We can begin to see how much more rich this is when compared to the same implementation in html</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;p&gt;</span>Donald was often known to say &quot;It can&#39;t be done!&quot; But my mother would always tell him &quot;Donald, surely it can.&quot; <span class="kw">&lt;em&gt;</span>No<span class="kw">&lt;/em&gt;</span>, was frequently his counter response.<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
+<pre class="html"><code>&lt;!DOCTYPE html&gt;
+
+&lt;head&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;p&gt;Donald was often known to say &quot;It can&#39;t be done!&quot; But my mother would always tell him &quot;Donald, surely it can.&quot; &lt;em&gt;No&lt;/em&gt;, was frequently his counter response.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
 <p>And then in Markdown…</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Donald was often known to say &quot;It can&#39;t be done!&quot; But my mother would always tell him &quot;Donald, surely it can.&quot; *No*, was frequently his counter response.</span></code></pre></div>
+<pre class="html"><code>Donald was often known to say &quot;It can&#39;t be done!&quot; But my mother would always tell him &quot;Donald, surely it can.&quot; *No*, was frequently his counter response.</code></pre>
 </div>
 
 <div id="footer">
